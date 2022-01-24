@@ -4,9 +4,6 @@ import java.sql.*;
 import com.user.Customer;
 
 
-
-
-
 public class Crud {
 	
 	
@@ -24,7 +21,7 @@ public static boolean insert(Customer pt) {
 			
 			pstmt.setString(1,pt.getName());
 			pstmt.setString(2,pt.getEmail());
-			pstmt.setString(3,pt.getPaasw());
+			pstmt.setString(3,pt.getPassword());
 			pstmt.setString(4,pt.getPhoneNumber());
 			pstmt.setString(5,pt.getGender());
 			

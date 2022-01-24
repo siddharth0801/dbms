@@ -14,7 +14,7 @@ public class Connectdb {
 	        	final String url = "jdbc:postgresql://localhost/store";
 	        	final String user = "postgres";
 	        	final String password = "sid123";
-	           Class.forName("org.postgresql.Driver");
+	        	Class.forName("org.postgresql.Driver");
 	           con = DriverManager.getConnection(url,user,password);
 	        } 
 	        catch (Exception e) 

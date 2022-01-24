@@ -11,30 +11,29 @@ import javax.servlet.http.HttpSession;
 import com.db.Crud;
 import com.login.dao.Dao;
 
-
 @WebServlet("/Login")
 public class Login extends HttpServlet {
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
-		String uname=request.getParameter("username");
-		String passw=request.getParameter("password");
-		
+		System.out.println("In Login servlet");
+
+		String uname = request.getParameter("username");
+		String passw = request.getParameter("password");
+
 		Dao dao = new Dao();
 		System.out.println("Made Object");
-		System.out.println("UserName: "+uname+" Password: "+passw);
-		
-		if(dao.check(uname, passw)) 
-		{
+		System.out.println("UserName: " + uname + " Password: " + passw);
+
+		if (dao.check(uname, passw)) {
 			System.out.println("Checked....");
-			HttpSession session= request.getSession();
+			HttpSession session = request.getSession();
 			session.setAttribute("userName", uname);
 			session.setAttribute("password", passw);
 			response.sendRedirect("home.jsp");
-		}
-		else {
-			
+		} else {
+
 			response.sendRedirect("login.jsp");
 		}
 	}

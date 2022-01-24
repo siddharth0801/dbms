@@ -4,32 +4,26 @@ public class Customer {
 	
 	private int customerId;
 	private String Name;
+	private String email;
+	private String password;
+	private String registration_date;
 	private String phoneNumber;
 	private String gender;
-	private String email;
-	private String paasw;
 	
-	
-	public Customer() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Customer(int customerId, String name, String phoneNumber, String gender, String email, String paasw) {
+	public Customer(int customerId, String name, String email, String password, String registration_date,
+			String phoneNumber, String gender) {
 		super();
 		this.customerId = customerId;
 		Name = name;
+		this.email = email;
+		this.password = password;
+		this.registration_date = registration_date;
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
-		this.email = email;
-		this.paasw = paasw;
 	}
-	public Customer(String name, String phoneNumber, String gender, String email, String paasw) {
+	
+	public Customer() {
 		super();
-		Name = name;
-		this.phoneNumber = phoneNumber;
-		this.gender = gender;
-		this.email = email;
-		this.paasw = paasw;
 	}
 	public int getCustomerId() {
 		return customerId;
@@ -43,6 +37,24 @@ public class Customer {
 	public void setName(String name) {
 		Name = name;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getRegistration_date() {
+		return registration_date;
+	}
+	public void setRegistration_date(String registration_date) {
+		this.registration_date = registration_date;
+	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -55,20 +67,11 @@ public class Customer {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPaasw() {
-		return paasw;
-	}
-	public void setPaasw(String paasw) {
-		this.paasw = paasw;
-	}
 	
 	
 	
-		
+	
+	
+	
+
 }
