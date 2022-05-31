@@ -1,6 +1,7 @@
 package com.operation;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,9 +36,17 @@ public class SearchProducts extends HttpServlet {
 			{
 				String pname=request.getParameter("pname");
 				Dao d = new Dao();
-				ArrayList<Product> al = d.getP(pname);
+				ArrayList<Product> al = d.getList();
+				ArrayList<Product> newAl = new ArrayList<Product>();
+				for(Product p: al) {
+					boolean x = p.getPname().toLowerCase().contains(pname.toLowerCase());			
+					if(x) {
+						newAl.add(p);
+					}
+				}
+//				System.out.println(newAl);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("listparty.jsp");
-				request.setAttribute("alist", al);
+				request.setAttribute("alist",newAl);
 				dispatcher.forward(request, response);
 
 			}

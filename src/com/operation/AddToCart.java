@@ -20,44 +20,46 @@ public class AddToCart extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("userName") == null) {
+			System.out.println("Send to login page");
 			response.sendRedirect("login.jsp");
-		}
+			System.out.println("Did not work???");
+		} else {
 
-		response.setContentType("text/html;charset=UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
 
-		try (PrintWriter out = response.getWriter()) {
+			try (PrintWriter out = response.getWriter()) {
 //        	out.print("add to cart servlet");
 
-			ArrayList<Cart> cartList = new ArrayList<>();
-			int id = Integer.parseInt(request.getParameter("id"));
-			Cart cm = new Cart();
-			cm.setId(id);
-			cm.setQuantity(1);
-			session = request.getSession();
-			ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-			if (cart_list == null) {
-				cartList.add(cm);
-				session.setAttribute("cart-list", cartList);
-				response.sendRedirect("listparty.jsp?Category=ALL");
-			} else {
-				cartList = cart_list;
-
-				boolean exist = false;
-				for (Cart c : cart_list) {
-					if (c.getId() == id) {
-						exist = true;
-						out.println(
-								"<h3 style='color:crimson; text-align:center'>Item Already in Cart, <a href='cart.jsp'>Go to Cart</a></h3>");
-					}
-				}
-
-				if (!exist) {
+				ArrayList<Cart> cartList = new ArrayList<>();
+				int id = Integer.parseInt(request.getParameter("id"));
+				Cart cm = new Cart();
+				cm.setId(id);
+				cm.setQuantity(1);
+				session = request.getSession();
+				ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+				if (cart_list == null) {
 					cartList.add(cm);
-					response.sendRedirect("listparty.jsp?Category=ALL");
+					session.setAttribute("cart-list", cartList);
+					response.sendRedirect("cart.jsp");
+				} else {
+					cartList = cart_list;
+
+					boolean exist = false;
+					for (Cart c : cart_list) {
+						if (c.getId() == id) {
+							exist = true;
+							out.println(
+									"<h1 style='color:crimson; text-align:center;'>Item Already in Cart, <a href='cart.jsp'>Go to Cart</a></h1>");
+						}
+					}
+
+					if (!exist) {
+						cartList.add(cm);
+						response.sendRedirect("cart.jsp");
+					}
 				}
 			}
 		}
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

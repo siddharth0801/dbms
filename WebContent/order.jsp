@@ -12,17 +12,15 @@
 <title>About Us</title>
 </head>
 <body>
-	<%-- <%@include file="navbar.html"%>
- --%>
+	<%@include file="navbar.html"%>
+
 	<h1 class="display-6">
 		<div class="alert alert-primary" role="alert">
-			<i>About Us</i>
+			<i>Order Recieved, Pay at Counter</i>
 		</div>
 	</h1>
 	<h3 style="margin: 5%;">
-		We are Students of <b>Shri G. S. Institute of technology and
-			Science, Indore</b>, having an aim to change the retail industry and
-		enhance peoples experience while shopping.
+		If you opted for home delivery it will be fulfilled as soon as possible in 1-2 days.
 	</h3>
 
 </body>

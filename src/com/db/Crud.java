@@ -30,7 +30,6 @@ public static boolean insert(Customer pt) {
 			flag=true;
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return flag;

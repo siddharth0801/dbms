@@ -6,6 +6,7 @@ public class Product {
 	private String pname;
 	private int price;
 	private String des;
+	private String imageUrl;
 	
 	public int getPid() {
 		return pid;
@@ -41,6 +42,12 @@ public class Product {
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 	

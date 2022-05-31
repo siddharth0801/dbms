@@ -6,12 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="css/aboutUs.css">
 
 <title>Product List</title>
 </head>
@@ -19,22 +17,13 @@
 	<%
 		response.setHeader("Cache-Control", "No-cache, no-store, must-revalidate");
 
-		if (session.getAttribute("userName") == null) {
+		/* if (session.getAttribute("userName") == null) {
 			response.sendRedirect("login.jsp");
-		}
+		} */
 	%>
 	<%@include file="navbar.html"%>
-	<!-- <nav class="navbar">
-	<script src="js/nav.js"></script>
-	</nav> -->
-
-
+	
 	<%
-		response.setHeader("Cache-Control", "No-cache, no-store, must-revalidate");
-		if (session.getAttribute("userName") == null) {
-			response.sendRedirect("login.jsp");
-		}
-
 		String c = (String) request.getParameter("Category");
 		String b = (String) request.getParameter("brand");
 		ArrayList<Product> products;
@@ -44,12 +33,12 @@
 			if (c.equals("ALL")) {
 				products = d.getList();
 			} else {
-				products = d.getList("Category",c);
+				products = d.getList("Category", c);
 			}
 		} else if (b != null) {
 			Dao d = new Dao();
 
-			products = d.getList("brand",b);
+			products = d.getList("brand", b);
 		} else {
 			products = (ArrayList<Product>) request.getAttribute("alist");
 		}
@@ -68,35 +57,48 @@
 	%>
 
 	<div class="container">
-		<div class="card-header my-3">All Products</div>
+		
 		<div class="row">
 			<%
-				if (products != null || !products.isEmpty()) {
+				int min = Integer.MAX_VALUE;
+				
+				if(products.size()!=0){
+					for(Product p:products){
+						min = Math.min(min,p.getDes().length());
+					}
+				
 					for (Product p : products) {
 			%>
 			<div class="col-md-3 my-3">
-				<div class="card w-100">
-					<img class="card-img-top" src="img/mi.jpg" alt="Card image cap">
+				<div class="card w-150">
+					<img class="card-img-top" src="<%=p.getImageUrl()%>"
+						alt="Product Image">
 					<div class="card-body">
-						<h5 class="card-title"><%=p.getPname()%></h5>
+						<h6 class="card-title"><%=p.getPname()%></h6>
 						<h6 class="price">
-							Price: Rs.
-							<%=p.getPrice()%></h6>
-						<h6 class="category">
+							Price: &#x20B9
+							<i><%=p.getPrice()%></i></h6>
+						<p class="text-muted">
 							Description:
-							<%=p.getDes()%></h6>
+							<%=p.getDes().substring(0, min)%>...</p>
 						<div class="mt-3 d-flex justify-content-between">
-							<a class="btn btn-dark" href="add-to-cart?id=<%=p.getPid()%>">Add
-								to Cart</a> <a class="btn btn-primary"
-								href="order-now?quantity=1&id=<%=p.getPid()%>">Buy Now</a>
+							<a class="btn btn-dark" href="add-to-cart?id=<%=p.getPid()%>">Add to Cart</a> 
+							<%-- <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getPid()%>">Buy Now</a> --%>
 						</div>
 					</div>
 				</div>
 			</div>
 			<%
 				}
-				} else {
-					out.println("There is no products");
+				} 
+				else {
+					%>
+					<tr>
+
+					<td colspan="9" align="center">No Products Available Right Now!!</td>
+
+				</tr>
+					<%
 				}
 			%>
 

@@ -28,15 +28,13 @@
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
 
-<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <link rel="stylesheet" href="home.css">
 <title>Registration Form</title>
 </head>
 <body>
 
 	<div id="register">
-		<h3 class="text-center text-white pt-5">Registration Form</h3>
+		<h3 class="text-center pt-5">Registration Form</h3>
 		<div class="container">
 			<div id="register-row"
 				class="row justify-content-center align-items-center">
@@ -48,52 +46,16 @@
 								<label for="firstName" class="text-info">Name:</label><br>
 								<input type="text" name="Name" class="form-control">
 							</div>
-							<!-- <div class="form-group">
-                                <label for="lastName" class="text-info">Last Name:</label><br>
-                                <input type="text" name="lastName" class="form-control">
-                            </div> 
-                             <div class="form-group">
-                                <label for="address" class="text-info">Address:</label><br>
-                                <input type="text" name="address" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="city" class="text-info">City:</label><br>
-                                <input type="text" name="city" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="state" class="text-info">State:</label><br>
-                                <input type="text" name="state" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="country" class="text-info">Country:</label><br>
-                                <input type="text" name="country" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="zip" class="text-info">Zip:</label><br>
-                                <input type="text" name="zip" class="form-control">
-                            </div> -->
 							<div class="form-group">
 								<label for="phone" class="text-info">Phone:</label><br> <input
 									type="text" name="phone" class="form-control">
 							</div>
 							<input type="radio" name="gender" value="M" checked>M <input
 								type="radio" name="gender" value="F">F
-							<!-- <div class="form-check">
-  							<input class="form-check-input" type="radio" name="female" value='F' id="female">
-  							<label class="form-check-label" for="female">
-    								Female
-  							</label>
-							</div>
-							<div class="form-check">
-							<input class="form-check-input" type="radio" name="male" value='M' id="male">
-  							<label class="form-check-label" for="male">
-    								Male
-  							</label>
-  							</div> -->
 							<hr>
 							<div class="form-group">
 								<label for="uname" class="text-info">Email ID:</label><br>
-								<input type="text" name="uname" class="form-control" required>
+								<input type="text" name="email" class="form-control" required>
 							</div>
 							<div class="form-group">
 								<label for="passw" class="text-info">Password:</label><br>
@@ -106,7 +68,6 @@
 									href="login.jsp"><button type="button"
 										class="btn btn-warning">Login</button></a>
 							</div>
-
 						</form>
 					</div>
 				</div>

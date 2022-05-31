@@ -11,21 +11,19 @@
 	<%
 		response.setHeader("Cache-Control", "No-cache, no-store, must-revalidate");
 
-		if (session.getAttribute("userName") == null) {
+		/* if (session.getAttribute("userName") == null) {
 			response.sendRedirect("login.jsp");
-		}
+		} */
 	%>
-	<%@include file="navbar.html" %>
-	<!-- <nav class="navbar"></nav>
-	<script src="js/nav.js"></script> -->
-
+	<%@include file="navbar.html"%>
+	
 	<section class="collection-container">
-		<a href="listparty.jsp?brand=hrx" class="collection"> <img src="img/hrx.png"
-			alt="">
+		<a href="listparty.jsp?brand=hrx" class="collection"> <img
+			src="img/hrx.png" alt="">
 			<p class="collection-title">HRX</p>
-		</a> <a href="listparty.jsp?brand=mi" class="collection"> <img src="img/mi.jpg"
-			alt="">
-			<p class="collection-title">mi</p>
+		</a> <a href="listparty.jsp?brand=mi" class="collection"> <img
+			src="img/mi123.jpg" alt="">
+			<p class="collection-title">Mi</p>
 		</a> <a href="listparty.jsp?brand=nestle" class="collection"> <img
 			src="img/Nestle.jpg" alt="">
 			<p class="collection-title">Nestle</p>
